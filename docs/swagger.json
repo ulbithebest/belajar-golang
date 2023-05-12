@@ -1,0 +1,191 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample API for Belajar Golang",
+        "title": "Belajar Golang API",
+        "contact": {},
+        "version": "1"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {
+        "/api/belajar": {
+            "get": {
+                "description": "Menampilkan semua data user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.User"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "get data user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "insert data user.",
+                "parameters": [
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.User"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/belajar/{id_user}": {
+            "get": {
+                "description": "get data user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Data user berdasarkan ID.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID User",
+                        "name": "id_user",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update data user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "update data user.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID User",
+                        "name": "id_user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Payload body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete data user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Hapus Data user berdasarkan ID.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID User",
+                        "name": "id_user",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.User": {
+            "type": "object",
+            "properties": {
+                "asal_kota": {
+                    "type": "string"
+                },
+                "kelas": {
+                    "type": "string"
+                },
+                "nama": {
+                    "type": "string"
+                },
+                "npm": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

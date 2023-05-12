@@ -1,0 +1,127 @@
+basePath: /
+definitions:
+  model.User:
+    properties:
+      asal_kota:
+        type: string
+      kelas:
+        type: string
+      nama:
+        type: string
+      npm:
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: This is a sample API for Belajar Golang
+  title: Belajar Golang API
+  version: "1"
+paths:
+  /api/belajar:
+    get:
+      consumes:
+      - application/json
+      description: Menampilkan semua data user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: Get all users
+      tags:
+      - Users
+    post:
+      consumes:
+      - application/json
+      description: get data user.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: insert data user.
+      tags:
+      - Users
+  /api/belajar/{id_user}:
+    delete:
+      consumes:
+      - application/json
+      description: delete data user.
+      parameters:
+      - description: Masukan ID User
+        in: path
+        name: id_user
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Hapus Data user berdasarkan ID.
+      tags:
+      - Users
+    get:
+      consumes:
+      - application/json
+      description: get data user.
+      parameters:
+      - description: Masukan ID User
+        in: path
+        name: id_user
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Data user berdasarkan ID.
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: update data user.
+      parameters:
+      - description: Masukan ID User
+        in: path
+        name: id_user
+        required: true
+        type: string
+      - description: Payload body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: update data user.
+      tags:
+      - Users
+swagger: "2.0"
